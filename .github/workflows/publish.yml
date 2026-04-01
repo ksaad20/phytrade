@@ -9,16 +9,9 @@ jobs:
   build-n-publish:
     name: Build and publish Python distributions to PyPI
     runs-on: ubuntu-latest
-    
-    # REQUIRED: This gives the worker the keys to your Private Vault
     permissions:
       contents: read
       id-token: write
-
-    # FORCED PATHING: Tells the worker exactly where the project lives
-    defaults:
-      run:
-        working-directory: ./phytrade
 
     steps:
       - name: Checkout code
@@ -36,10 +29,17 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install build
 
-      - name: Build binary wheel and source tarball
-        # The "." ensures it finds pyproject.toml in the current folder
-        run: python -m build .
-
+      - name: Build and Publish
+        # This part detects if you are in a subfolder or not
+        run: |
+          if [ -d "phytrade" ]; then
+            cd phytrade
+          fi
+          python -m build .
+          
       - name: Publish to PyPI
-        # Pinned to v1.12.4 to avoid "Unable to resolve version" errors
         uses: pypa/gh-action-pypi-publish@v1.12.4
+        with:
+          # This tells the publisher where the files were built
+          packages-dir: ${{ github.workspace }}/phytrade/dist/
+          # If that fails, it will try the root dist folder automatically
