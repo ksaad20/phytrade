@@ -29,13 +29,12 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install build
 
-      - name: Build and Publish
+      - name: Diagnostic Scout
         run: |
-          # This command finds where pyproject.toml is hiding and goes there
-          TARGET_DIR=$(find . -name "pyproject.toml" -exec dirname {} \;)
-          echo "Found project in: $TARGET_DIR"
-          cd "$TARGET_DIR"
-          python -m build .
+          echo "--- LISTING ALL FILES IN REPO ---"
+          find . -maxdepth 3 -not -path '*/.*'
+          echo "--- SEARCHING FOR TOML FILES ---"
+          find . -name "*.toml"
           
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.12.4
