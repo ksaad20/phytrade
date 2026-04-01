@@ -30,11 +30,11 @@ jobs:
           python -m pip install build
 
       - name: Build and Publish
-        # This part detects if you are in a subfolder or not
         run: |
-          if [ -d "phytrade" ]; then
-            cd phytrade
-          fi
+          # This command finds where pyproject.toml is hiding and goes there
+          TARGET_DIR=$(find . -name "pyproject.toml" -exec dirname {} \;)
+          echo "Found project in: $TARGET_DIR"
+          cd "$TARGET_DIR"
           python -m build .
           
       - name: Publish to PyPI
