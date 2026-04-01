@@ -4,7 +4,7 @@ version = "1.0.1"
 description = "Scientific mass arbitration engine for the India-Bangladesh trade corridor."
 readme = "README.md"
 license = {text = "Proprietary"}
-authors = [{ name="Your Name", email="your.email@example.com" }]
+authors = [{ name="Kazi Saad Asif", email="kazisaadasif29@gmail.com" }]
 requires-python = ">=3.9"
 dependencies = ["numpy>=1.24.0"]
 classifiers = [
