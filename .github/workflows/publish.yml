@@ -9,7 +9,6 @@ jobs:
   build-n-publish:
     name: Build and publish Python distributions to PyPI
     runs-on: ubuntu-latest
-    # THE MASTER KEY: Required for Private Repos & OIDC Handshake
     permissions:
       contents: read
       id-token: write
@@ -33,7 +32,6 @@ jobs:
       - name: Build binary wheel and source tarball
         run: python -m build
 
-        # This uses the Trusted Publisher (OIDC) handshake
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release
-      
+        # Changed @release to @v1.12.4 to resolve the versioning error
+        uses: pypa/gh-action-pypi-publish@v1.12.4
