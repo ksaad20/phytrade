@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software for quantitative research or commercial strategy development, please cite it as follows."
+authors:
+  - family-names: "Kazi"
+    given-names: "Saad Asif"
+    orcid: "https://orcid.org/0000-0003-0560-9117" # Replace with your ORCID if you have one
+title: "phytrade: The Global Standard for Trade Physics"
+version: 1.1.6
+date-released: 2026-04-02
+url: "https://github.com/ksaad20/phytrade"
+repository-code: "https://github.com/ksaad20/phytrade"
+license: "Proprietary"
+abstract: >
+  phytrade is a high-performance Python-based engine designed for the backtesting and 
+  execution of quantitative trading strategies. It focuses on high-fidelity market 
+  simulation, modular indicator integration, and institutional-grade risk management.
+keywords:
+  - "quantitative trading"
+  - "algorithmic trading"
+  - "backtesting"
+  - "financial engineering"
+  - "python"
