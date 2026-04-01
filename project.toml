@@ -1,6 +1,6 @@
 [project]
 name = "phytrade"
-version = "1.1.0"
+version = "1.1.1"
 description = "Scientific mass arbitration engine for the India-Bangladesh trade corridor."
 readme = "README.md"
 license = {text = "Proprietary"}
