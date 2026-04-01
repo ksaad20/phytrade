@@ -33,6 +33,7 @@ jobs:
       - name: Build binary wheel and source tarball
         run: python -m build
 
-      - name: Publish to PyPI
         # This uses the Trusted Publisher (OIDC) handshake
+      - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@release
+      
