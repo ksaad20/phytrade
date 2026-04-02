@@ -1,7 +1,7 @@
 [project]
 name = "phytrade"
-version = "1.1.8"
-description = "Scientific mass arbitration engine for the India-Bangladesh trade corridor."
+version = "1.1.9"
+description = "Institutional trade physics library for global commodity arbitration (50 Domains)."
 readme = "README.md"
 license = {text = "Proprietary"}
 authors = [{ name="Kazi Saad Asif", email="kazisaadasif29@gmail.com" }]
@@ -13,3 +13,10 @@ classifiers = [
     "License :: Other/Proprietary License",
     "Programming Language :: Python :: 3",
 ]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build-meta"
