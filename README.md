@@ -1,31 +1,40 @@
-# phytrade v1.1.8: The Global Standard for Trade Physics
+# phytrade (v1.1.9)
 
-**High-precision thermodynamic deconvolution and mass arbitration for international commerce.**
+**Institutional Physics Library for Global Commodity Arbitration**
 
-`phytrade` is a specialized Python engine designed to resolve mass discrepancies in porous materials (Cotton, Jute, etc.) by reconciling scientific equilibrium with commercial regulatory standards.
+`phytrade` is a high-precision computational physics framework designed to resolve mass, quality, and environmental disputes in international trade. By implementing industry-standard thermodynamics, fluid dynamics, and mechanical stress models, it provides an objective "Arbitrator" for maritime and land-based commerce.
 
-## 🚀 Key Features (v1.1.8)
-* **ASABE D245.7 Compliance:** Implements the Modified Halsey Equation using certified agricultural engineering coefficients.
-* **ASTM D2495 Interoperability:** Bridges the gap between scientific Equilibrium Moisture Content (EMC) and commercial weight allowances.
-* **Mass Arbitration:** Identify "Ghost Weight" variances in maritime and land-based cargo.
-* **Audit-Ready Reporting:** Generates timestamped reports with legal and scientific citations.
+---
 
-## 🛠 Installation
+## 🏛️ Project Architecture: The 50-Problem Roadmap
+
+Version 1.1.9 introduces a **Modular Domain Expansion**. The library is structured into five distinct categories to cover the entire lifecycle of global trade physics.
+
+
+
+| Category | Domain | Status | Scope |
+| :--- | :--- | :--- | :--- |
+| **I** | **Thermodynamics** | ✅ **Active** | Problems 1-10 (Moisture, Heat, PCM) |
+| **II** | **Fluid Dynamics** | 🏗️ *Planned* | Problems 11-20 (Viscosity, Flow, Cargo) |
+| **III** | **Mechanical** | 🏗️ *Planned* | Problems 21-30 (Stress, Strain, Loading) |
+| **IV** | **Logistics** | 🏗️ *Planned* | Problems 31-40 (Optimization, Routing) |
+| **V** | **Strategic** | 🏗️ *Planned* | Problems 41-50 (Risk, Game Theory) |
+
+---
+
+## 🚀 Key Features (Category I: Thermodynamics)
+
+The current release fully populates the `thermo` engine with 10 specialized solvers:
+
+* **Mass Deconvolution:** Implementation of **ASABE D245.7** and **ASTM D2495** for moisture-adjusted mass arbitration.
+* **Container Rain Prediction:** Dew point analysis to prevent cargo sweat and moisture damage.
+* **Thermal Management:** PCM (Phase Change Material) requirement solvers and Vacuum Insulated Panel (VIP) status monitoring.
+* **Biological Activity:** Respiration heat and ethylene diffusion models for perishable cargo.
+
+---
+
+## 📦 Installation 
+
 ```bash
 pip install phytrade
-
-##Resolving a dispute 
-
-from phytrade.engine import MassArbitrator
-
-# Initialize the Arbitrator for a Cotton shipment
-arb = MassArbitrator(material="Cotton")
-
-# Run a side-by-side audit of ASABE vs ASTM standards
-audit = arb.arbitrate(mass=25000, moisture=0.12, rh=75, temp_c=32)
-
-print(f"ASABE Scientific Mass: {audit['asabe_scientific_mass']} kg")
-print(f"ASTM Commercial Mass: {audit['astm_commercial_mass']} kg")
-print(f"Variance: {audit['variance_kg']} kg")
-print(f"Verdict: {audit['verdict']}")
 
