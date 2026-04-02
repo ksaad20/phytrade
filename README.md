@@ -1,4 +1,4 @@
-# phytrade (v2.0.0)
+# phytrade (v1.2.0)
 
 **Institutional Physics Library for Global Commodity Arbitration**
 
