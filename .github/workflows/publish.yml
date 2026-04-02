@@ -17,28 +17,34 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Pull everything
+          fetch-depth: 0
 
-      - name: Show me the goods
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Build Tools
         run: |
-          echo "--- WHERE AM I? ---"
-          pwd
-          echo "--- WHAT FILES ARE HERE? ---"
-          ls -R
-          echo "--- SEARCHING FOR ANY TOML ---"
-          find . -name "*.toml"
+          python -m pip install --upgrade pip
+          python -m pip install setuptools wheel build
 
       - name: Build and Publish
         run: |
-          # Only run if we actually find the file
+          # Locate the manifest
           MANIFEST=$(find . -name "pyproject.toml" | head -n 1)
           if [ -z "$MANIFEST" ]; then
             echo "ERROR: pyproject.toml is MISSING from the repo."
             exit 1
           fi
+          
+          # Move to the directory containing pyproject.toml
           cd $(dirname "$MANIFEST")
-          python -m pip install build
-          python -m build .
+          
+          # Build using the tools we just installed
+          python -m build
+          
+          # Prepare the distribution folder
           mkdir -p ${{ github.workspace }}/dist-final
           cp dist/* ${{ github.workspace }}/dist-final/
 
