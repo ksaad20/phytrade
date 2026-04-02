@@ -1,22 +1,26 @@
 cff-version: 1.3.0
-message: "If you use this software for agricultural engineering research or trade arbitration, please cite it as follows."
+message: "If you use this software in your research or commercial arbitration, please cite it as follows."
 authors:
-  - family-names: "Kazi"
-    given-names: "Saad Asif"
-    orcid: "https://orcid.org/0000-0003-0560-9117"
-title: "phytrade: Institutional Engine for ASABE & ASTM Trade Physics"
-version: 1.1.8
+  - family-names: "Asif"
+    given-names: "Kazi Saad"
+    email: "kazisaadasif29@gmail.com"
+title: "phytrade: Institutional Physics Library for Global Commodity Arbitration"
+version: 1.1.9
 date-released: 2026-04-03
 url: "https://github.com/ksaad20/phytrade"
-license: "Proprietary"
+repository-code: "https://github.com/ksaad20/phytrade"
 abstract: >
-  phytrade is a specialized Python engine for thermodynamic mass arbitration. 
-  It implements ASABE D245.7 standards to solve for moisture equilibrium 
-  in porous agricultural products and provides cross-compliance with 
-  ASTM commercial weight standards.
+  A comprehensive computational physics library designed for international trade 
+  arbitration. Version 1.1.9 introduces a modular domain architecture covering 
+  Thermodynamics, Fluid Dynamics, Mechanical Stress, Logistics, and Strategic 
+  Physics, with a focus on resolving mass and quality disputes in maritime 
+  and land-based commerce.
 keywords:
+  - "trade physics"
+  - "thermodynamics"
+  - "commodity arbitration"
+  - "mass deconvolution"
   - "ASABE D245.7"
   - "ASTM D2495"
-  - "agricultural engineering"
-  - "mass arbitration"
-  - "trade physics"
+  - "logistics engineering"
+license: "Proprietary"
