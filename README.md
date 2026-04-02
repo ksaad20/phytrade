@@ -1,34 +1,31 @@
-# ⚖️ phytrade: The Global Standard for Trade Physics
+# phytrade v1.1.8: The Global Standard for Trade Physics
 
-**phytrade** is a zero-dependency Python library designed to settle mass disputes in global commodity trade using the **Modified Halsey Equation**.
+**High-precision thermodynamic deconvolution and mass arbitration for international commerce.**
 
-## 🛡️ Problem: The "Ghost Weight" Gap
-In the India-Bangladesh trade corridor, environmental factors (humidity/temperature) cause significant mass fluctuations in hygroscopic materials like Cotton and Jute. **phytrade** provides the mathematical truth to arbitrate these gaps.
+`phytrade` is a specialized Python engine designed to resolve mass discrepancies in porous materials (Cotton, Jute, etc.) by reconciling scientific equilibrium with commercial regulatory standards.
 
+## 🚀 Key Features (v1.1.8)
+* **ASABE D245.7 Compliance:** Implements the Modified Halsey Equation using certified agricultural engineering coefficients.
+* **ASTM D2495 Interoperability:** Bridges the gap between scientific Equilibrium Moisture Content (EMC) and commercial weight allowances.
+* **Mass Arbitration:** Identify "Ghost Weight" variances in maritime and land-based cargo.
+* **Audit-Ready Reporting:** Generates timestamped reports with legal and scientific citations.
 
+## 🛠 Installation
+```bash
+pip install phytrade
 
-## 🚀 Quick Start
-```python
-import phytrade
+##Resolving a dispute 
 
-# Arbitrate 25 tons of Cotton at 32°C and 85% Humidity
-result = phytrade.quick_check(mass=25000, moisture=0.07, rh=0.85, temp_c=32)
+from phytrade.engine import MassArbitrator
 
-print(f"Verified Mass Delta: {result['mass_delta_kg']} kg")
+# Initialize the Arbitrator for a Cotton shipment
+arb = MassArbitrator(material="Cotton")
 
-## 🛠️ Industrial Accuracy & Validation
-The core of `phytrade` is built on the **Modified Halsey Equation**, a thermodynamic standard for predicting the moisture-mass relationship in biological materials. 
+# Run a side-by-side audit of ASABE vs ASTM standards
+audit = arb.arbitrate(mass=25000, moisture=0.12, rh=75, temp_c=32)
 
-### Physical Constants (ASABE D245.7)
-Unlike generic calculators, `phytrade` uses immutable physical constants ($A, B, C$) sourced from **ASABE (American Society of Agricultural and Biological Engineers)** and **ISO 11085** standards. 
+print(f"ASABE Scientific Mass: {audit['asabe_scientific_mass']} kg")
+print(f"ASTM Commercial Mass: {audit['astm_commercial_mass']} kg")
+print(f"Variance: {audit['variance_kg']} kg")
+print(f"Verdict: {audit['verdict']}")
 
-| Material | Constant A | Constant B | Constant C |
-| :--- | :--- | :--- | :--- |
-| **Cotton** | 0.000021 | 1.52 | 2.15 |
-| **Jute** | 0.000018 | 1.48 | 2.05 |
-| **Wheat** | 0.000035 | 1.35 | 1.95 |
-
-
-
-### Dispute Resolution Logic
-By calculating the **Equilibrium Moisture Content (EMC)**, the engine identifies if a weight loss at the Port of Chittagong is due to natural evaporation (thermodynamic equilibrium) or actual cargo theft/shortage. This provides a "Scientific Baseline" for insurance adjusters and trade auditors.
