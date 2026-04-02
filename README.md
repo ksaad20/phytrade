@@ -1,4 +1,4 @@
-# phytrade (v1.2.0)
+# phytrade (v1.2.1)
 
 **Institutional Physics Library for Global Commodity Arbitration**
 
@@ -8,7 +8,7 @@
 
 ## 🏛️ Project Architecture: The 50-Problem Roadmap
 
-Version 1.1.9 introduces a **Modular Domain Expansion**. The library is structured into five distinct categories to cover the entire lifecycle of global trade physics.
+Version 1.2.1 introduces a **Modular Domain Expansion**. The library is structured into five distinct categories to cover the entire lifecycle of global trade physics.
 
 
 
@@ -78,7 +78,7 @@ License: Proprietary. All rights reserved.
 If you use this library in commercial arbitration or academic research, please cite it using the included CITATION.cff file:
 
 Plaintext
-Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.1.9).
+Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.1).
 Author: Kazi Saad Asif
 
 Contact: kazisaadasif29@gmail.com
