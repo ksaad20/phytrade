@@ -38,3 +38,49 @@ The current release fully populates the `thermo` engine with 10 specialized solv
 ```bash
 pip install phytrade
 
+---
+
+## 🛠️ Usage
+
+To integrate the arbitration engine into your workflow, use the domain-specific import:
+
+```python
+from phytrade.thermo import ThermoArbitrator
+
+# 1. Initialize the Category I engine
+arbitrator = ThermoArbitrator()
+
+# 2. Solve a "Ghost Weight" (Moisture Arbitration) dispute
+# Example: 25,000kg Cotton at 12% moisture in 65% RH / 30°C
+result = arbitrator.solve_ghost_weight(
+    mass=25000, 
+    moisture=0.12, 
+    rh=65, 
+    temp_c=30, 
+    material="Cotton"
+)
+
+print(f"Arbitrated Mass: {result['predicted_mass_kg']} kg")
+print(f"Variance: {result['variance_kg']} kg")
+
+📝 Standards Compliance
+phytrade adheres to international scientific and engineering standards, including:
+
+ASABE D245.7: Moisture relationships for agricultural products.
+
+ASTM D2495: Standard test method for moisture in cotton.
+
+ISO 19011: Guidelines for auditing management systems.
+
+📄 License & Citation
+License: Proprietary. All rights reserved.
+
+If you use this library in commercial arbitration or academic research, please cite it using the included CITATION.cff file:
+
+Plaintext
+Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.1.9).
+Author: Kazi Saad Asif
+
+Contact: kazisaadasif29@gmail.com
+
+GitHub: ksaad20/phytrade
