@@ -31,18 +31,19 @@ jobs:
 
       - name: Build Package
         run: |
-          # Locate the manifest
+          # 1. Locate the directory containing pyproject.toml
           MANIFEST=$(find . -name "pyproject.toml" | head -n 1)
           if [ -z "$MANIFEST" ]; then
-            echo "ERROR: pyproject.toml is MISSING."
+            echo "ERROR: pyproject.toml not found."
             exit 1
           fi
-          
-          # Move to the directory and build WITHOUT isolation
           cd $(dirname "$MANIFEST")
+
+          # 2. Build WITHOUT isolation to use the tools installed above
+          # This fixes the "Backend 'setuptools.build-meta' is not available" error
           python -m build --no-isolation
           
-          # Prepare the distribution folder
+          # 3. Move the results to a clean workspace for the uploader
           mkdir -p ${{ github.workspace }}/dist-final
           cp dist/* ${{ github.workspace }}/dist-final/
 
