@@ -27,22 +27,20 @@ jobs:
       - name: Install Build Tools
         run: |
           python -m pip install --upgrade pip
-          python -m pip install setuptools wheel build
+          python -m pip install setuptools>=64.0 wheel build
 
-      - name: Build and Publish
+      - name: Build Package
         run: |
           # Locate the manifest
           MANIFEST=$(find . -name "pyproject.toml" | head -n 1)
           if [ -z "$MANIFEST" ]; then
-            echo "ERROR: pyproject.toml is MISSING from the repo."
+            echo "ERROR: pyproject.toml is MISSING."
             exit 1
           fi
           
-          # Move to the directory containing pyproject.toml
+          # Move to the directory and build WITHOUT isolation
           cd $(dirname "$MANIFEST")
-          
-          # Build using the tools we just installed
-          python -m build
+          python -m build --no-isolation
           
           # Prepare the distribution folder
           mkdir -p ${{ github.workspace }}/dist-final
