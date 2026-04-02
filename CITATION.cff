@@ -1,25 +1,22 @@
 cff-version: 1.2.0
-message: "If you use this software for quantitative research, trade arbitration, or commercial moisture deconvolution, please cite it as follows."
+message: "If you use this software for agricultural engineering research or trade arbitration, please cite it as follows."
 authors:
   - family-names: "Kazi"
     given-names: "Saad Asif"
     orcid: "https://orcid.org/0000-0003-0560-9117"
-title: "phytrade: The Global Standard for Trade Physics and Mass Arbitration"
+title: "phytrade: Institutional Engine for ASABE & ASTM Trade Physics"
 version: 1.1.7
 date-released: 2026-04-03
 url: "https://github.com/ksaad20/phytrade"
-repository-code: "https://github.com/ksaad20/phytrade"
 license: "Proprietary"
 abstract: >
-  phytrade is a high-precision Python engine designed for thermodynamic mass 
-  verification and trade dispute resolution. It utilizes the Modified Halsey 
-  Equation to deconvolve 'ghost weight' in porous materials, reconciling 
-  discrepancies between ADBASE and ASTM D2495 standards.
+  phytrade is a specialized Python engine for thermodynamic mass arbitration. 
+  It implements ASABE D245.7 standards to solve for moisture equilibrium 
+  in porous agricultural products and provides cross-compliance with 
+  ASTM commercial weight standards.
 keywords:
-  - "trade physics"
-  - "mass arbitration"
-  - "ghost weight"
-  - "thermodynamics"
-  - "moisture deconvolution"
+  - "ASABE D245.7"
   - "ASTM D2495"
-  - "ADBASE"
+  - "agricultural engineering"
+  - "mass arbitration"
+  - "trade physics"
