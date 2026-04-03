@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,15 +25,15 @@ jobs:
       - name: Install Build Tools
         run: |
           python -m pip install --upgrade pip
-          python -m pip install build
+          python -m pip install setuptools>=64.0 wheel build
 
       - name: Build Package
-        # If pyproject.toml is in the root, you don't need the complex find/cd logic.
-        # If it is in a subdirectory, change '.' to that directory name.
-        run: python -m build .
+        # Since your pyproject.toml is in the root, we target '.' directly.
+        # --no-isolation ensures it uses the tools we just installed.
+        run: python -m build --no-isolation .
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.12.4
         with:
-          # The 'build' tool puts files in a folder named 'dist' by default
+          # By default, 'build' puts everything in a folder named 'dist'
           packages-dir: dist/
