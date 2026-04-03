@@ -1,4 +1,4 @@
-# phytrade (v1.2.5)
+# phytrade (v1.2.6)
 
 **Institutional Physics Library for Global Commodity Arbitration**
 
@@ -8,7 +8,7 @@
 
 ## 🏛️ Project Architecture: The 50-Problem Roadmap
 
-Version **1.2.5** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
+Version **1.2.6** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
 
 | Category | Domain | Status | Scope |
 | :--- | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ Version **1.2.5** marks the transition from a specialized thermal tool to a comp
 
 ---
 
-## 🚀 Key Features (v1.2.5 Expansion)
+## 🚀 Key Features (v1.2.6 Expansion)
 
 The library now supports multi-domain arbitration across the following engines:
 
@@ -83,7 +83,7 @@ If you use this library in commercial arbitration or academic research, please c
 
 Plaintext:
 
-Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.5).
+Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.6).
 
 Author: Kazi Saad Asif
 
