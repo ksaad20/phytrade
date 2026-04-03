@@ -1,18 +1,18 @@
-cff-version: 1.0.7
+cff-version: 1.0.8
 message: "If you use this software in your research or commercial arbitration, please cite it as follows."
 authors:
   - family-names: "Asif"
     given-names: "Kazi Saad"
     email: "kazisaadasif29@gmail.com"
 title: "phytrade: Institutional Physics Library for Global Commodity Arbitration"
-version: 1.2.2
+version: 1.2.3
 date-released: 2026-04-03
 type: software 
 url: "https://github.com/ksaad20/phytrade"
 repository-code: "https://github.com/ksaad20/phytrade"
 abstract: >
   A comprehensive computational physics library designed for international trade 
-  arbitration. Version 1.2.2 introduces a modular domain architecture covering 
+  arbitration. Version 1.2.3 introduces a modular domain architecture covering 
   Thermodynamics, Fluid Dynamics, Mechanical Stress, Logistics, and Strategic 
   Physics, with a focus on resolving mass and quality disputes in maritime 
   and land-based commerce.
