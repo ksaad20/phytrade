@@ -3,7 +3,14 @@ Institutional Physics Library for Global Commodity Arbitration
 
 phytrade is a high-precision computational physics framework designed to resolve mass, quality, and environmental disputes in international trade. By implementing industry-standard thermodynamics, fluid dynamics, and mechanical stress models, it provides an objective "Arbitrator" for maritime and land-based commerce.
 
-🏛️ Project Architecture: The 50-Problem RoadmapVersion 1.2.5 marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now Active, populating the library with the first 50 essential problem-solvers for global trade.CategoryDomainStatusScopeIThermodynamics✅ ActiveProblems 1-10 (Moisture, Heat, PCM)IIFluid Dynamics✅ ActiveProblems 11-20 (Drag, Cavitation, Siltation)IIIMechanical✅ ActiveProblems 21-30 (Stress, Torque, Wind Tech)IVLogistics✅ ActiveProblems 31-40 (Platooning, Docking, Routing)VStrategic✅ ActiveProblems 41-50 (ROI, Risk, Game Theory)
+🏛️ Project Architecture: The 50-Problem RoadmapVersion 1.2.5 marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now Active, populating the library with the first 50 essential problem-solvers for global trade.
+
+Category.    Domain.           Status.          Scope.
+I,           Thermodynamics,   ✅ Active.     "Problems 1-10 (Moisture, Heat, PCM)"
+II,          Fluid Dynamics,   ✅ Active.     "Problems 11-20 (Drag, Cavitation, Siltation)"
+III,         Mechanical,       ✅ Active.     "Problems 21-30 (Stress, Torque, Wind Tech)"
+IV,          Logistics,        ✅ Active.     "Problems 31-40 (Platooning, Docking, Routing)"
+V,           Strategic,        ✅ Active.     "Problems 41-50 (ROI, Risk, Game Theory)"
 
 🚀 Key Features (v1.2.5 Expansion)
 The library now supports multi-domain arbitration across the following engines:
