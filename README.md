@@ -1,4 +1,4 @@
-# phytrade (v1.2.1)
+# phytrade (v1.2.2)
 
 **Institutional Physics Library for Global Commodity Arbitration**
 
@@ -78,7 +78,7 @@ License: Proprietary. All rights reserved.
 If you use this library in commercial arbitration or academic research, please cite it using the included CITATION.cff file:
 
 Plaintext
-Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.1).
+Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.2).
 Author: Kazi Saad Asif
 
 Contact: kazisaadasif29@gmail.com
