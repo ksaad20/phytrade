@@ -28,12 +28,12 @@ jobs:
           python -m pip install setuptools>=64.0 wheel build
 
       - name: Build Package
-        # Since your pyproject.toml is in the root, we target '.' directly.
-        # --no-isolation ensures it uses the tools we just installed.
+        # --no-isolation is the fix for the 'backend not available' error
         run: python -m build --no-isolation .
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.12.4
         with:
-          # By default, 'build' puts everything in a folder named 'dist'
+          # This is the default folder 'build' creates. 
+          # No manual 'mkdir' or 'cp' needed.
           packages-dir: dist/
