@@ -1,6 +1,6 @@
 [project]
 name = "phytrade"
-version = "1.2.2"
+version = "1.2.3"
 description = "Institutional trade physics library for global commodity arbitration (50 Domains)."
 readme = "README.md"
 license = {text = "Proprietary"}
