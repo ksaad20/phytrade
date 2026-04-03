@@ -22,4 +22,4 @@ where = ["src"]
 
 [build-system]
 requires = ["setuptools>=64.0", "wheel"]
-build-backend = "setuptools.build-meta"
+build-backend = "setuptools.build_meta"
