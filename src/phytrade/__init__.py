@@ -1,6 +1,6 @@
 """
 phytrade: Institutional Physics Library for Global Commodity Arbitration
-Version: 1.2.5
+Version: 1.2.6
 Author: Kazi Saad Asif
 """
 
@@ -10,7 +10,7 @@ from .mechanical import MechanicalArbitrator
 from .logistics import LogisticsArbitrator
 from .strategic import StrategicArbitrator
 
-__version__ = "1.2.5"
+__version__ = "1.2.6"
 __author__ = "Kazi Saad Asif"
 
 __all__ = [
