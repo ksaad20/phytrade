@@ -7,6 +7,7 @@ authors:
 title: "phytrade: Institutional Physics Library for Global Commodity Arbitration"
 version: 1.2.2
 date-released: 2026-04-03
+type: software 
 url: "https://github.com/ksaad20/phytrade"
 repository-code: "https://github.com/ksaad20/phytrade"
 abstract: >
