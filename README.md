@@ -1,67 +1,47 @@
-# phytrade (v1.2.4)
+phytrade (v1.2.5)
+Institutional Physics Library for Global Commodity Arbitration
 
-**Institutional Physics Library for Global Commodity Arbitration**
+phytrade is a high-precision computational physics framework designed to resolve mass, quality, and environmental disputes in international trade. By implementing industry-standard thermodynamics, fluid dynamics, and mechanical stress models, it provides an objective "Arbitrator" for maritime and land-based commerce.
 
-`phytrade` is a high-precision computational physics framework designed to resolve mass, quality, and environmental disputes in international trade. By implementing industry-standard thermodynamics, fluid dynamics, and mechanical stress models, it provides an objective "Arbitrator" for maritime and land-based commerce.
+🏛️ Project Architecture: The 50-Problem RoadmapVersion 1.2.5 marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now Active, populating the library with the first 50 essential problem-solvers for global trade.CategoryDomainStatusScopeIThermodynamics✅ ActiveProblems 1-10 (Moisture, Heat, PCM)IIFluid Dynamics✅ ActiveProblems 11-20 (Drag, Cavitation, Siltation)IIIMechanical✅ ActiveProblems 21-30 (Stress, Torque, Wind Tech)IVLogistics✅ ActiveProblems 31-40 (Platooning, Docking, Routing)VStrategic✅ ActiveProblems 41-50 (ROI, Risk, Game Theory)
 
----
+🚀 Key Features (v1.2.5 Expansion)
+The library now supports multi-domain arbitration across the following engines:
 
-## 🏛️ Project Architecture: The 50-Problem Roadmap
+Thermo (Category I): Mass Deconvolution (ASABE D245.7), Container Rain Prediction, and Perishable Respiration models.
 
-Version 1.2.4 introduces a **Modular Domain Expansion**. The library is structured into five distinct categories to cover the entire lifecycle of global trade physics.
+Fluids (Category II): Hull Skin Friction analysis for bio-fouling, Propeller Cavitation erosion risk, and Port Siltation depth impact on cargo capacity.
 
+Mechanical (Category III): Wind-Assisted Propulsion (Sails/Rotors) force calculation, Shaft Torque monitoring, and Hull Stress analysis.
 
+Logistics (Category IV): Aerodynamic Drafting (Truck/Ship Platooning) fuel savings and optimized Dry-Docking scheduling.
 
-| Category | Domain | Status | Scope |
-| :--- | :--- | :--- | :--- |
-| **I** | **Thermodynamics** | ✅ **Active** | Problems 1-10 (Moisture, Heat, PCM) |
-| **II** | **Fluid Dynamics** | 🏗️ *Planned* | Problems 11-20 (Viscosity, Flow, Cargo) |
-| **III** | **Mechanical** | 🏗️ *Planned* | Problems 21-30 (Stress, Strain, Loading) |
-| **IV** | **Logistics** | 🏗️ *Planned* | Problems 31-40 (Optimization, Routing) |
-| **V** | **Strategic** | 🏗️ *Planned* | Problems 41-50 (Risk, Game Theory) |
+Strategic (Category V): Economical Speed optimization, Strategic Reserve utilization, and Market Volatility hedging.
 
----
+Installation 
 
-## 🚀 Key Features (Category I: Thermodynamics)
-
-The current release fully populates the `thermo` engine with 10 specialized solvers:
-
-* **Mass Deconvolution:** Implementation of **ASABE D245.7** and **ASTM D2495** for moisture-adjusted mass arbitration.
-* **Container Rain Prediction:** Dew point analysis to prevent cargo sweat and moisture damage.
-* **Thermal Management:** PCM (Phase Change Material) requirement solvers and Vacuum Insulated Panel (VIP) status monitoring.
-* **Biological Activity:** Respiration heat and ethylene diffusion models for perishable cargo.
-
----
-
-## 📦 Installation 
-
-```bash
 pip install phytrade
 
----
+🛠️ Usage
+To integrate the arbitration engine into your workflow, initialize the specific domain arbitrator:
 
-## 🛠️ Usage
-
-To integrate the arbitration engine into your workflow, use the domain-specific import:
-
-```python
+Python
 from phytrade.thermo import ThermoArbitrator
+from phytrade.fluids import FluidsArbitrator
 
-# 1. Initialize the Category I engine
-arbitrator = ThermoArbitrator()
+# 1. Initialize the Engines
+thermo = ThermoArbitrator()
+fluids = FluidsArbitrator()
 
-# 2. Solve a "Ghost Weight" (Moisture Arbitration) dispute
-# Example: 25,000kg Cotton at 12% moisture in 65% RH / 30°C
-result = arbitrator.solve_ghost_weight(
-    mass=25000, 
-    moisture=0.12, 
-    rh=65, 
-    temp_c=30, 
-    material="Cotton"
+# 2. Solve a Hull Friction Dispute (Problem 11)
+# Estimate drag increase from bio-fouling (15% fouling index) at 12 knots
+drag_increase = fluids.estimate_hull_skin_friction(
+    velocity=6.17,  # 12 knots in m/s
+    wetted_area=3500, 
+    bio_fouling_index=0.15
 )
 
-print(f"Arbitrated Mass: {result['predicted_mass_kg']} kg")
-print(f"Variance: {result['variance_kg']} kg")
+print(f"Added Drag Force: {drag_increase} N")
 
 📝 Standards Compliance
 phytrade adheres to international scientific and engineering standards, including:
@@ -70,6 +50,8 @@ ASABE D245.7: Moisture relationships for agricultural products.
 
 ASTM D2495: Standard test method for moisture in cotton.
 
+ITTC Recommended Procedures: For Hull Resistance and Propeller Cavitation.
+
 ISO 19011: Guidelines for auditing management systems.
 
 📄 License & Citation
@@ -77,8 +59,10 @@ License: Proprietary. All rights reserved.
 
 If you use this library in commercial arbitration or academic research, please cite it using the included CITATION.cff file:
 
-Plaintext
-Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.4).
+Plaintext:
+
+Asif, K. S. (2026). phytrade: Institutional Physics Library for Global Commodity Arbitration (v1.2.5).
+
 Author: Kazi Saad Asif
 
 Contact: kazisaadasif29@gmail.com
