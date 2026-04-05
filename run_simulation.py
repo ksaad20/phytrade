@@ -3,6 +3,13 @@ PhyTrade v1.2.7: Commercial Port Simulation
 Simulating an Institutional Physics-Based Settlement
 """
 
+import sys
+import os
+
+# ADD THESE TWO LINES HERE
+# This tells Python that your code lives in the 'src' folder
+sys.path.insert(0, os.path.abspath("src"))
+
 import phytrade
 import json
 
