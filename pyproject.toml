@@ -1,40 +1,25 @@
-"""
-phytrade: Institutional physics trade physics library for global commodity arbitration (50 Domains).
-Author: Kazi Saad Asif
-"""
+[build-system]
+requires = ["setuptools>=61.0", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
 
-from importlib.metadata import version, PackageNotFoundError
-
-# This pulls directly from the 'version' field in your pyproject.toml
-try:
-    __version__ = version("phytrade")
-except PackageNotFoundError:
-    # This acts as your safety net during local development
-    __version__ = "1.2.6" 
-
-__author__ = "Kazi Saad Asif"
-
-# Hoisting specialized arbitrators
-from .thermo import ThermoArbitrator
-from .fluids import FluidsArbitrator
-from .mechanical import MechanicalArbitrator
-from .logistics import LogisticsArbitrator
-from .strategic import StrategicArbitrator
-
-# Hoisting Core Commercial API
-from .engine import Engine
-from .schema import Schema
-from .mapper import Mapper
-
-__all__ = [
-    "__version__",
-    "__author__",
-    "ThermoArbitrator",
-    "FluidsArbitrator",
-    "MechanicalArbitrator",
-    "LogisticsArbitrator",
-    "StrategicArbitrator",
-    "Engine",
-    "Schema",
-    "Mapper",
+[project]
+name = "phytrade"
+version = "1.2.6"
+description = "Institutional physics trade physics library for global commodity arbitration (50 Domains)."
+readme = "README.md"
+authors = [{name = "Kazi Saad Asif"}]
+license = {text = "Proprietary"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
 ]
+dependencies = [
+    "numpy>=1.20.0",
+]
+requires-python = ">=3.8"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com"
