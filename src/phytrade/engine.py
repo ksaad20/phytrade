@@ -2,33 +2,35 @@ import numpy as np
 
 class Engine:
     def __init__(self, baseline_entropy=1.0):
-        # We point self.schema to the Class itself, not an instance Schema()
-        # This allows self.mapper.apply(raw_data, self.schema) to work correctly
+        """
+        Initializes the Physics-Trade Engine.
+        Imports are handled locally to prevent circular dependency deadlocks.
+        """
+        # Local imports break the circular loop with __init__.py and schema.py
         from .schema import Schema
+        from .mapper import Mapper
+        
+        # We point to the Class itself, not Schema(), because it is a static utility
         self.schema = Schema
         self.baseline_entropy = baseline_entropy
-        
-        from .mapper import Mapper
         self.mapper = Mapper()
 
     def calculate_dispute_value(self, mass, velocity, delta_t, contract_value):
-        """
-        Calculates 'Financial Friction' based on Kinetic Energy and Time Disorder.
-        Note: Ensure velocity is converted to m/s if Joules are required.
-        """
+        """Calculates 'Financial Friction' based on Kinetic Energy and Time Disorder."""
+        
         # 1. Kinetic Energy (Potential for damage/impact)
-        # ke = 0.5 * m * v^2
+        # Formula: ke = 0.5 * m * v^2
         ke = 0.5 * mass * (velocity**2)
 
         # 2. Entropy Delta (Disorder caused by time delay)
-        # log1p is more stable for very small delta_t values
+        # Using np.log1p (log of 1+x) is safer for very small or zero delta_t
         entropy_delta = np.log1p(delta_t) / self.baseline_entropy
 
         # 3. Financial Friction Coefficient
         friction_factor = ke * entropy_delta
 
-        # 4. Final Settlement (Normalized via Sigmoid-style scaling)
-        # Prevents the settlement from exceeding the total contract value
+        # 4. Final Settlement (Normalized via sigmoid-style scaling)
+        # This prevents the friction from exceeding the total trade value
         settlement = (friction_factor / (1 + friction_factor)) * contract_value
 
         return {
@@ -39,8 +41,8 @@ class Engine:
         }
 
     def process_port_data(self, raw_data):
-        """The 'Any Port' logic: Maps raw input to physics parameters."""
-        # Passing self.schema (the class) to the mapper
+        """The 'Any Port' logic: Maps raw input to validated physics parameters."""
+        # Pass the Schema class to the mapper for validation logic
         mapped = self.mapper.apply(raw_data, self.schema)
         
         return self.calculate_dispute_value(
