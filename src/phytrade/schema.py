@@ -1,30 +1,24 @@
 """
 SPTS: Standardized Physics-Trade Schema
-Defines the physical boundaries for valid trade arbitration.
 """
 
-class schema:
-    # Constants for global maritime/commodity trade
-    MAX_VESSEL_VELOCITY_KNOTS = 40.0  # Physical limit for cargo ships
-    MIN_MASS_KG = 1.0                # Smallest tradeable unit
-    MAX_HUMIDITY_PERCENT = 100.0     # Environmental limit for commodity storage
-    MAX_ENTROPY_DELTA = 5.0          # Maximum allowable 'disorder' before system failure
+class Schema:
+    # Constants
+    MAX_VESSEL_VELOCITY_KNOTS = 40.0
+    MIN_MASS_KG = 1.0
+    MAX_HUMIDITY_PERCENT = 100.0
+    MAX_ENTROPY_DELTA = 5.0
 
     @staticmethod
-    def validate_telemetry(mass, velocity, humidity=None):
-        """
-        Validates if the incoming trade data is physically possible.
-        Returns (True, "Success") or (False, "Error Message").
-        """
-        if mass < PhysicalConstraints.MIN_MASS_KG:
+    def validate_telemetry(mass: float, velocity: float, humidity: float = None):
+        if mass < Schema.MIN_MASS_KG:
             return False, "Invalid Mass: Below physical trade limit."
-        
-        if velocity > (PhysicalConstraints.MAX_VESSEL_VELOCITY_KNOTS * 0.51444): # Convert to m/s
+        if velocity > Schema.MAX_VESSEL_VELOCITY_KNOTS:
             return False, "Invalid Velocity: Exceeds physical hull limits."
-            
-        if humidity and (humidity < 0 or humidity > PhysicalConstraints.MAX_HUMIDITY_PERCENT):
-            return False, "Invalid Environment: Humidity out of bounds."
-            
+        if humidity is not None:
+            if humidity < 0 or humidity > Schema.MAX_HUMIDITY_PERCENT:
+                return False, "Invalid Environment: Humidity out of bounds."
         return True, "Data Physically Validated"
 
-# This will be used by the 'AgnosticMapper' in the next step.
+# Add this line to fix the AgnosticMapper error
+PhysicalConstraints = Schema
