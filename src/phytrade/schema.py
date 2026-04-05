@@ -3,7 +3,7 @@ SPTS: Standardized Physics-Trade Schema
 Defines the physical boundaries for valid trade arbitration.
 """
 
-class PhysicalConstraints:
+class Schema:
     # Constants for global maritime/commodity trade
     MAX_VESSEL_VELOCITY_KNOTS = 40.0  # Physical limit for cargo ships
     MIN_MASS_KG = 1.0                # Smallest tradeable unit
