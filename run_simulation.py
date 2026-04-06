@@ -1,39 +1,27 @@
-# run_simulation.py
 import sys
 import os
 
-# 1. Direct path injection
+# 1. Point directly to the source folder
 sys.path.insert(0, os.path.abspath("src"))
 
-# 2. Direct imports to bypass __init__ deadlocks
+# 2. Import the Engine class directly from the file
 from phytrade.engine import Engine
 
 def main():
-    print("-" * 30)
-    print("PHYTRADE v1.2.7 SIMULATION")
-    print("-" * 30)
-
-    # Initialize with baseline entropy
+    print("--- PHYTRADE v1.2.7 SIMULATION ---")
+    
+    # Simple Engine test (This bypasses Schema/Mapper entirely)
     engine = Engine(baseline_entropy=1.5)
-
-    # Simulation Data
-    raw_telemetry = {
-        "mass": 180000,
-        "velocity": 24.5,
-        "delta_t": 72,
-        "contract_value": 15000000
-    }
-
-    # Run the math
+    
     result = engine.calculate_dispute_value(
-        mass=raw_telemetry["mass"],
-        velocity=raw_telemetry["velocity"],
-        delta_t=raw_telemetry["delta_t"],
-        contract_value=raw_telemetry["contract_value"]
+        mass=180000, 
+        velocity=24.5, 
+        delta_t=72, 
+        contract_value=15000000
     )
 
     print(f"STATUS: {result['status']}")
-    print(f"RECOMMENDED SETTLEMENT: ${result['recommended_settlement_usd']:,.2f}")
+    print(f"SETTLEMENT: ${result['recommended_settlement_usd']:,.2f}")
 
 if __name__ == "__main__":
     main()
