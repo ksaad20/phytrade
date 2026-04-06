@@ -3,8 +3,8 @@ from typing import TYPE_CHECKING, Dict, Any
 
 # This prevents circular imports at runtime but allows IDE/Type checking
 if TYPE_CHECKING:
-    from phytrade.schema import Schema
-    from phytrade.mapper import Mapper
+    from .schema import Schema
+    from .mapper import Mapper
 
 class Engine:
     def __init__(self, baseline_entropy: float = 1.0, schema: 'Schema' = None, mapper: 'Mapper' = None):
