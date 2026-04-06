@@ -4,22 +4,32 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "phytrade"
-version = "1.2.6"
-description = "Institutional physics trade physics library for global commodity arbitration (50 Domains)."
+version = "1.2.7"
+description = "Institutional Physics Protocol for Global Commodity Arbitration (50 Domains)."
 readme = "README.md"
-authors = [{name = "Kazi Saad Asif"}]
-license = {text = "Proprietary"}
+requires-python = ">=3.8"
+license = {text = "PhyTrade Proprietary Source-Available License v1.0"}
+
+authors = [
+    {name = "Kazi Saad Asif", email = "kazisaadasif29@gmail.com"}
+]
+
 classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Scientific/Engineering :: Physics",
     "Programming Language :: Python :: 3",
     "Operating System :: OS Independent",
+    "License :: Other/Proprietary License",
 ]
+
 dependencies = [
     "numpy>=1.20.0",
 ]
-requires-python = ">=3.8"
 
 [tool.setuptools.packages.find]
 where = ["src"]
 
 [project.urls]
-Homepage = "https://github.com"
+Homepage = "https://github.com/ksaad20/phytrade"
