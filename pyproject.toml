@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 name = "phytrade"
 dynamic = ["version"]
 authors = [
-    {name = "ksaad20", email = "your-email@example.com"},
+    {name = "ksaad20", email = "kazisaadasif29@gmail.com"},
 ]
 description = "Institutional Physics-based Engine and Protocol for Global Commodity Arbitration"
 readme = "README.md"
@@ -21,7 +21,7 @@ classifiers = [
 ]
 
 # Fixed: Updated license to simple string to remove DeprecationWarnings
-license = "MIT"
+license = "Proprietary"
 
 dependencies = [
     "numpy>=1.24.0",
