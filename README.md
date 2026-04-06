@@ -8,7 +8,7 @@
 
 ## 🏛️ Project Architecture: The 50-Problem Roadmap
 
-Version **1.2.6** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
+Version **1.2.7** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
 
 | Category | Domain | Status | Scope |
 | :--- | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ Version **1.2.6** marks the transition from a specialized thermal tool to a comp
 
 ---
 
-## 🚀 Key Features (v1.2.6 Expansion)
+## 🚀 Key Features (v1.2.7 Expansion)
 
 The library now supports multi-domain arbitration across the following engines:
 
