@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # CRITICAL: Allows setuptools-scm to see your tags
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -25,15 +27,14 @@ jobs:
       - name: Install Build Tools
         run: |
           python -m pip install --upgrade pip
-          python -m pip install setuptools>=64.0 wheel build
+          # Explicitly installing the missing dependency here
+          python -m pip install setuptools>=64.0 wheel build setuptools-scm>=8.0
 
       - name: Build Package
-        # --no-isolation is the fix for the 'backend not available' error
-        run: python -m build --no-isolation .
+        # --no-isolation uses the tools we just installed above
+        run: python -m build --no-isolation
 
       - name: Publish to PyPI
         uses: pypa/gh-action-pypi-publish@v1.12.4
         with:
-          # This is the default folder 'build' creates. 
-          # No manual 'mkdir' or 'cp' needed.
           packages-dir: dist/
