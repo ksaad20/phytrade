@@ -15,7 +15,7 @@ def main():
     res = engine.calculate_dispute_value(180000, 24.5, 72, 15000000)
     
     print(f"STATUS: {res['status']}")
-    print(f"SETTLEMENT: ${res['settlement']:,.2f}")
+    print(f"SETTLEMENT: ${res['recommended_settlement_usd']:,.2f}")
 
 if __name__ == "__main__":
     main()
