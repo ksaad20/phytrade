@@ -1,5 +1,5 @@
 [build-system]
-# Fixed: Added setuptools-scm to requirements to resolve build error
+# This tells GitHub to install the tools needed to package your code
 requires = ["setuptools>=64", "setuptools-scm>=8.0"]
 build-backend = "setuptools.build_meta"
 
@@ -7,21 +7,20 @@ build-backend = "setuptools.build_meta"
 name = "phytrade"
 dynamic = ["version"]
 authors = [
-    {name = "ksaad20", email = "kazisaadasif29@gmail.com"},
+    {name = "ksaad20"},
 ]
 description = "Institutional Physics-based Engine and Protocol for Global Commodity Arbitration"
 readme = "README.md"
 requires-python = ">=3.10"
-keywords = ["maritime", "physics", "arbitration", "logistics", "trade"]
+
+# FIX: This format allows custom license names without triggering the SPDX error
+license = {text = "Proprietary"}
+
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Topic :: Scientific/Engineering :: Physics",
 ]
-
-# Fixed: Updated license to simple string to remove DeprecationWarnings
-license = "Proprietary"
 
 dependencies = [
     "numpy>=1.24.0",
@@ -29,7 +28,6 @@ dependencies = [
 
 [project.urls]
 Homepage = "https://github.com/ksaad20/phytrade"
-Issues = "https://github.com/ksaad20/phytrade/issues"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -38,4 +36,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools_scm]
-# This enables automatic versioning based on your Git tags
+# Enables automatic versioning from your git tags
