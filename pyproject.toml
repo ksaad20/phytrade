@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 name = "phytrade"
 dynamic = ["version"]
 authors = [
-    {name = "ksaad20"},
+    {name = "Kazi Saad Asif"},
 ]
 description = "Institutional Physics-based Engine and Protocol for Global Commodity Arbitration"
 readme = "README.md"
