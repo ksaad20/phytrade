@@ -1,29 +1,21 @@
 import sys
 import os
 
-# 1. Add the 'src' directory to the system path
+# 1. Force the path
 sys.path.insert(0, os.path.abspath("src"))
 
-# 2. IMPORTANT: Import directly from the engine file, 
-# NOT from the 'phytrade' package generally.
+# 2. Direct Import from the file, bypassing __init__
 from phytrade.engine import Engine
 
 def main():
-    print("--- PHYTRADE v1.2.7 SIMULATION ---")
-    
-    # Initialize engine
+    print("--- PHYTRADE v1.2.7 START ---")
     engine = Engine(baseline_entropy=1.5)
     
-    # Run a direct calculation
-    result = engine.calculate_dispute_value(
-        mass=180000, 
-        velocity=24.5, 
-        delta_t=72, 
-        contract_value=15000000
-    )
-
-    print(f"STATUS: {result['status']}")
-    print(f"SETTLEMENT: ${result['recommended_settlement_usd']:,.2f}")
+    # Direct math test (Bypasses Schema/Mapper entirely)
+    res = engine.calculate_dispute_value(180000, 24.5, 72, 15000000)
+    
+    print(f"STATUS: {res['status']}")
+    print(f"SETTLEMENT: ${res['settlement']:,.2f}")
 
 if __name__ == "__main__":
     main()
