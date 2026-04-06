@@ -1,6 +1,6 @@
-# phytrade (v1.2.6)
+# phytrade (v1.2.7)
 
-**Institutional Physics Library for Global Commodity Arbitration**
+**Institutional Physics Library and Protocol for Global Commodity Arbitration**
 
 `phytrade` is a high-precision computational physics framework designed to resolve mass, quality, and environmental disputes in international trade. By implementing industry-standard thermodynamics, fluid dynamics, and mechanical stress models, it provides an objective "Arbitrator" for maritime and land-based commerce.
 
@@ -31,6 +31,45 @@ The library now supports multi-domain arbitration across the following engines:
 * **Strategic (Category V):** **Economical Speed** optimization, **Strategic Reserve** utilization, and **Market Volatility** hedging.
 
 ---
+
+##🛠 Usage: The "Any Port" Arbitrator
+To bypass localized data naming conventions, use the v1.2.7 mapping bridge:
+
+'''bash
+
+from phytrade.engine import Engine
+from phytrade.schema import Schema
+from phytrade.mapper import Mapper
+
+# 1. Initialize the Protocol
+schema = Schema()
+mapper = Mapper()
+engine = Engine(baseline_entropy=1.5, schema=schema, mapper=mapper)
+
+# 2. Define Local Port Jargon (e.g., Singapore, Rotterdam, or Chattogram)
+local_mapping = {
+    "vessel_displacement": "mass",
+    "current_sog": "velocity",
+    "arrival_delay": "delta_t",
+    "cargo_value_usd": "contract_value"
+}
+
+# 3. Raw Telemetry Data
+raw_data = {
+    "vessel_displacement": 180000, 
+    "current_sog": 24.5, 
+    "arrival_delay": 72, 
+    "cargo_value_usd": 15000000
+}
+
+# 4. Execute Objective Arbitration
+# This bypasses human bias by using the laws of physics as the contract base.
+mapped_data = {local_mapping[k]: v for k, v in raw_data.items()}
+result = engine.calculate_dispute_value(**mapped_data)
+
+print(f"Arbitration Status: {result['status']}")
+print(f"Recommended Settlement: ${result['recommended_settlement_usd']:,.2f}")
+
 
 ## 📦 Installation 
 
@@ -75,6 +114,8 @@ ASTM D2495: Standard test method for moisture in cotton.
 ITTC Recommended Procedures: For Hull Resistance and Propeller Cavitation.
 
 ISO 19011: Guidelines for auditing management systems.
+
+IMO MARPOL Annex VI: For Carbon Intensity Indicator (CII) modeling.
 
 📄 License & Citation
 License:Proprietary. All rights reserved.
