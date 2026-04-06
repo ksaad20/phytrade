@@ -3,19 +3,14 @@ from typing import Dict, Any
 
 class Engine:
     def __init__(self, baseline_entropy: float = 1.0, schema=None, mapper=None):
-        """
-        Initializes the Engine. 
-        We removed ': Schema' type hints to stop the import engine from crashing.
-        """
         self.schema = schema
         self.baseline_entropy = baseline_entropy
         self.mapper = mapper
 
     def calculate_dispute_value(self, mass: float, velocity: float, delta_t: float, contract_value: float) -> Dict[str, Any]:
-        """Pure Math Layer - No external dependencies."""
+        """Pure Physics Layer - No Imports Allowed Here"""
         ke = 0.5 * mass * (velocity**2)
         entropy_delta = np.log1p(delta_t) / self.baseline_entropy
-        
         friction_factor = ke + entropy_delta
         settlement = (friction_factor / (1 + friction_factor)) * contract_value
         
@@ -27,18 +22,15 @@ class Engine:
         }
 
     def process_port_data(self, raw_data: Dict[str, Any]) -> Dict[str, Any]:
-        # Lazy Loading: Python only looks for these files when this function runs
+        # WE MOVE THE IMPORTS INSIDE THIS FUNCTION ONLY
         from .schema import Schema
         from .mapper import Mapper
         
         local_schema = self.schema if self.schema else Schema()
         local_mapper = self.mapper if self.mapper else Mapper()
-        
         mapped = local_mapper.apply(raw_data, local_schema)
         
         return self.calculate_dispute_value(
-            mass=mapped['mass'],
-            velocity=mapped['velocity'],
-            delta_t=mapped['time_delay'],
-            contract_value=mapped['value']
+            mass=mapped['mass'], velocity=mapped['velocity'],
+            delta_t=mapped['time_delay'], contract_value=mapped['value']
         )
