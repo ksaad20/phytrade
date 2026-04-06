@@ -1,10 +1,6 @@
 import numpy as np
 from typing import TYPE_CHECKING, Dict, Any
 
-# This prevents circular imports at runtime but allows IDE/Type checking
-if TYPE_CHECKING:
-    from .schema import Schema
-    from .mapper import Mapper
 
 class Engine:
     def __init__(self, baseline_entropy: float = 1.0, schema: 'Schema' = None, mapper: 'Mapper' = None):
@@ -39,16 +35,22 @@ class Engine:
             "status": "DISPUTE_VALIDATED" if entropy_delta > 1.2 else "STABLE_TRADE"
         }
 
-    def process_port_data(self, raw_data: Dict[str, Any]) -> Dict[str, Any]:
-        """Maps inconsistent Port Jargon to validated physics parameters."""
-        if not self.mapper or not self.schema:
-            raise ImportError("Engine requires Mapper and Schema to process raw port data.")
-            
-        mapped = self.mapper.apply(raw_data, self.schema)
-        
-        return self.calculate_dispute_value(
-            mass=mapped['mass'],
-            velocity=mapped['velocity'],
-            delta_t=mapped['time_delay'],
-            contract_value=mapped['value']
-        )
+def process_port_data(self, raw_data: Dict[str, Any]) -> Dict[str, Any]:
+    """Maps inconsistent Port Jargon to validated physics parameters."""
+    
+    # MOVE THE IMPORTS INSIDE THIS FUNCTION
+    from .schema import Schema
+    from .mapper import Mapper
+    
+    # Ensure instances exist if they weren't injected at __init__
+    local_schema = self.schema if self.schema else Schema()
+    local_mapper = self.mapper if self.mapper else Mapper()
+    
+    mapped = local_mapper.apply(raw_data, local_schema)
+    
+    return self.calculate_dispute_value(
+        mass=mapped['mass'],
+        velocity=mapped['velocity'],
+        delta_t=mapped['time_delay'],
+        contract_value=mapped['value']
+    )
