@@ -1,18 +1,20 @@
 import sys
 import os
 
-# 1. Point directly to the source folder
+# 1. Add the 'src' directory to the system path
 sys.path.insert(0, os.path.abspath("src"))
 
-# 2. Import the Engine class directly from the file
+# 2. IMPORTANT: Import directly from the engine file, 
+# NOT from the 'phytrade' package generally.
 from phytrade.engine import Engine
 
 def main():
     print("--- PHYTRADE v1.2.7 SIMULATION ---")
     
-    # Simple Engine test (This bypasses Schema/Mapper entirely)
+    # Initialize engine
     engine = Engine(baseline_entropy=1.5)
     
+    # Run a direct calculation
     result = engine.calculate_dispute_value(
         mass=180000, 
         velocity=24.5, 
