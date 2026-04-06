@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.abspath("src"))
 from phytrade.engine import Engine
 
 def main():
-    print("--- PHYTRADE v1.2.7 START ---")
+    print("--- PHYTRADE v1.2.8 START ---")
     engine = Engine(baseline_entropy=1.5)
     
     # Direct math test (Bypasses Schema/Mapper entirely)
