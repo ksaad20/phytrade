@@ -4,15 +4,15 @@ from typing import Dict, Any
 class Engine:
     def __init__(self, baseline_entropy: float = 1.0, schema=None, mapper=None):
         """
-        Initializes the Physics-Trade Engine.
-        We removed the type hints ': Schema' to stop the import crash.
+        Initializes the Engine. 
+        We removed ': Schema' type hints to stop the import engine from crashing.
         """
         self.schema = schema
         self.baseline_entropy = baseline_entropy
         self.mapper = mapper
 
     def calculate_dispute_value(self, mass: float, velocity: float, delta_t: float, contract_value: float) -> Dict[str, Any]:
-        """Core Physics Logic - This is now 100% independent."""
+        """Pure Math Layer - No external dependencies."""
         ke = 0.5 * mass * (velocity**2)
         entropy_delta = np.log1p(delta_t) / self.baseline_entropy
         
@@ -27,7 +27,7 @@ class Engine:
         }
 
     def process_port_data(self, raw_data: Dict[str, Any]) -> Dict[str, Any]:
-        # ONLY import these when the function is actually called
+        # Lazy Loading: Python only looks for these files when this function runs
         from .schema import Schema
         from .mapper import Mapper
         
