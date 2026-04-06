@@ -1,4 +1,4 @@
-# phytrade (v1.2.9)
+# phytrade (v1.3.0)
 
 **Institutional Physics Library and Protocol for Global Commodity Arbitration**
 
@@ -8,7 +8,7 @@
 
 ## 🏛️ Project Architecture: The 50-Problem Roadmap
 
-Version **1.2.9** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
+Version **1.3.0** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
 
 | Category | Domain | Status | Scope |
 | :--- | :--- | :--- | :--- |
@@ -20,7 +20,7 @@ Version **1.2.9** marks the transition from a specialized thermal tool to a comp
 
 ---
 
-## 🚀 Key Features (v1.2.9 Expansion)
+## 🚀 Key Features (v1.3.0 Expansion)
 
 The library now supports multi-domain arbitration across the following engines:
 
@@ -33,7 +33,7 @@ The library now supports multi-domain arbitration across the following engines:
 ---
 
 ##🛠 Usage: The "Any Port" Arbitrator
-To bypass localized data naming conventions, use the v1.2.9 mapping bridge:
+To bypass localized data naming conventions, use the v1.3.0 mapping bridge:
 
 '''bash
 
