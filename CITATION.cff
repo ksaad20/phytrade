@@ -5,14 +5,14 @@ authors:
     given-names: "Kazi Saad"
     email: "kazisaadasif29@gmail.com"
 title: "phytrade: Institutional Physics Library for Global Commodity Arbitration"
-version: 1.2.6
-date-released: 2026-04-03
+version: 1.2.7
+date-released: 2026-04-07
 type: software 
 url: "https://github.com/ksaad20/phytrade"
 repository-code: "https://github.com/ksaad20/phytrade"
 abstract: >
   A comprehensive computational physics library designed for international trade 
-  arbitration. Version 1.2.6 introduces a modular domain architecture covering 
+  arbitration. Version 1.2.7 introduces a modular domain architecture covering 
   Thermodynamics, Fluid Dynamics, Mechanical Stress, Logistics, and Strategic 
   Physics, with a focus on resolving mass and quality disputes in maritime 
   and land-based commerce.
@@ -24,4 +24,5 @@ keywords:
   - "ASABE D245.7"
   - "ASTM D2495"
   - "logistics engineering"
+  - "IMO Compliance"
 license: "Proprietary"
