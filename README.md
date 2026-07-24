@@ -6,6 +6,12 @@
 
 ---
 
+## Citation
+
+If you use **PhyTrade** in your research, please cite:
+
+> Asif, K. S. (2026). *PhyTrade: Institutional Physics Library and Protocol for Global Commodity Arbitration* (Version 1.0.0). Zenodo. https://doi.org/10.5281/zenodo.21536973
+
 ## 🏛️ Project Architecture: The 50-Problem Roadmap
 
 Version **1.3.0** marks the transition from a specialized thermal tool to a comprehensive physics engine. All five core domains are now **Active**, populating the library with the first 50 essential problem-solvers for global trade.
