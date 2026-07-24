@@ -1,3 +1,13 @@
+[![CI](https://github.com/ksaad20/phytrade/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/ksaad20/phytrade/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/ksaad20/phytrade/actions/workflows/codeql.yml/badge.svg?branch=main)](https://github.com/ksaad20/phytrade/actions/workflows/codeql.yml)
+[![PyPI](https://img.shields.io/pypi/v/phytrade.svg)](https://pypi.org/project/phytrade/)
+[![Python](https://img.shields.io/pypi/pyversions/phytrade.svg)](https://pypi.org/project/phytrade/)
+[![License](https://img.shields.io/github/license/ksaad20/phytrade)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/ksaad20/phytrade)](https://github.com/ksaad20/phytrade/releases)
+[![Stars](https://img.shields.io/github/stars/ksaad20/phytrade)](https://github.com/ksaad20/phytrade/stargazers)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21536973.svg)](https://doi.org/10.5281/zenodo.21536973)
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0560--9117-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0560-9117)
+
 # phytrade (v1.3.0)
 
 **Institutional Physics Library and Protocol for Global Commodity Arbitration**
