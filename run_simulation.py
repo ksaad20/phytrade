@@ -1,21 +1,24 @@
-import sys
 import os
+import sys
 
 # 1. Force the path
-sys.path.insert(0, os.path.abspath("src"))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "src"))
 
-# 2. Direct Import from the file, bypassing __init__
 from phytrade.engine import Engine
 
+
 def main():
-    print("--- PHYTRADE v1.2.8 START ---")
-    engine = Engine(baseline_entropy=1.5)
-    
-    # Direct math test (Bypasses Schema/Mapper entirely)
-    res = engine.calculate_dispute_value(180000, 24.5, 72, 15000000)
-    
-    print(f"STATUS: {res['status']}")
-    print(f"SETTLEMENT: ${res['recommended_settlement_usd']:,.2f}")
+    engine = Engine()
+
+    result = engine.calculate_dispute_value(
+        mass=10000,
+        velocity=12,
+        delta_t=3600,
+        contract_value=500000,
+    )
+
+    print(result)
+
 
 if __name__ == "__main__":
     main()
