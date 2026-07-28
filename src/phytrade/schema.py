@@ -4,11 +4,9 @@ class Schema:
     MAX_HUMIDITY_PERCENT = 100
 
     @staticmethod
-    def validate_telemetry(
-        mass: float,
-        velocity: float,
-        humidity: float | None = None,
-    ):
+    def validate_telemetry(mass: float, velocity: float, humidity: float | None = None):
+    
+    
         if mass < Schema.MIN_MASS_KG:
             return False, "Invalid Mass: Below physical trade limit."
 
