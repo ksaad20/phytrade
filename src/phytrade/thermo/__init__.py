@@ -1,3 +1,7 @@
-from .engine import ThermoArbitrator
+from .engine import ThermoArbitrator as ThermoArbitrator
 
-__doc__ = "Category I: Thermodynamics & Heat Transfer - Problems 1-10"
+__all__ = ["ThermoArbitrator"]
+
+__doc__ = (
+    "Category I: Thermodynamics & Heat Transfer - Problems 1-10"
+)
