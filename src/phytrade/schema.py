@@ -9,9 +9,10 @@ class Schema:
     
         if mass < Schema.MIN_MASS_KG:
             return False, "Invalid Mass: Below physical trade limit."
-
         if velocity > Schema.MAX_VESSEL_VELOCITY_KNOTS:
-            return False, "Invalid Velocity: Exceeds physical hull limits."
+            return False, "..."
+        if humidity is not None and (humidity < 0 or humidity > Schema.MAX_HUMIDITY_PERCENT):
+            return False, "..."
 
         if humidity is not None and (
             humidity < 0
