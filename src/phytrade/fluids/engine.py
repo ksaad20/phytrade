@@ -1,55 +1,201 @@
 import math
 
+
 class FluidsArbitrator:
     """
-    Manages high-fidelity fluid dynamics, hull resistance, and port siltation.
+    Manages high-fidelity fluid dynamics, hull resistance,
+    and port siltation.
     """
+
     def __init__(self):
         self.rho_sw = 1025.0  # Seawater density (kg/m^3)
-        self.g = 9.81         # Gravity (m/s^2)
+        self.g = 9.81  # Gravity (m/s^2)
 
-    def estimate_hull_skin_friction(self, velocity, wetted_area, bio_fouling_index):
+    def estimate_hull_skin_friction(
+        self,
+        velocity: float,
+        wetted_area: float,
+        bio_fouling_index: float,
+    ) -> float:
         """[11] Estimates drag increase from bio-fouling to time dry-docking."""
-        cf_clean = 0.075 / (math.log10(velocity * 100 / 0.000001) - 2)**2
-        drag_clean = 0.5 * self.rho_sw * (velocity**2) * wetted_area * cf_clean
-        return drag_clean * (1 + bio_fouling_index)
+        cf_clean = 0.075 / (
+            math.log10(
+                velocity * 100 / 0.000001
+            )
+            - 2
+        ) ** 2
 
-    def model_free_surface_effect(self, tank_width, tank_length, fluid_density):
-        """[12] Models the kinetic energy/moment of liquid bulk in partially filled tanks."""
-        i_moment = (tank_length * (tank_width**3)) / 12
-        return (fluid_density * i_moment) / self.rho_sw
+        drag_clean = (
+            0.5
+            * self.rho_sw
+            * (velocity**2)
+            * wetted_area
+            * cf_clean
+        )
 
-    def predict_propeller_cavitation(self, p_static, p_vapor, tip_speed):
-        """[14] Predicts 'bubble collapse' based on local pressure vs vapor pressure."""
-        sigma = (p_static - p_vapor) / (0.5 * self.rho_sw * tip_speed**2)
-        return sigma < 0.3  # Threshold for cavitation onset
+        return drag_clean * (
+            1 + bio_fouling_index
+        )
 
-    def optimize_trim_draft(self, displacement, lcb_position, vcg):
-        """[15] Calculates fuel-efficient hull angle based on current load."""
-        return math.atan((lcb_position - vcg) / displacement)
+    def model_free_surface_effect(
+        self,
+        tank_width: float,
+        tank_length: float,
+        fluid_density: float,
+    ) -> float:
+        """
+        [12] Models the kinetic energy/moment of liquid
+        bulk in partially filled tanks.
+        """
 
-    def calculate_ballast_displacement(self, target_draft, current_displacement):
-        """[16] Optimizes CoG while minimizing dead weight."""
-        return max(0, (target_draft * 10.25) - current_displacement)
+        i_moment = (
+            tank_length
+            * (tank_width**3)
+        ) / 12
 
-    def simulate_wave_resistance(self, velocity, hull_length):
-        """[17] Simulates hull-water interaction to find 'economical speed'."""
-        froude_nb = velocity / math.sqrt(self.g * hull_length)
-        return 0.5 * self.rho_sw * (velocity**2) * (froude_nb**4)
+        return (
+            fluid_density
+            * i_moment
+        ) / self.rho_sw
 
-    def model_air_lubrication(self, air_flow_rate, hull_surface):
-        """[18] Models friction reduction of micro-bubble layers."""
-        reduction_factor = min(0.15, (air_flow_rate / hull_surface) * 0.5)
+    def predict_propeller_cavitation(
+        self,
+        p_static: float,
+        p_vapor: float,
+        tip_speed: float,
+    ) -> bool:
+        """
+        [14] Predicts bubble collapse based on local
+        pressure vs vapor pressure.
+        """
+
+        sigma = (
+            p_static - p_vapor
+        ) / (
+            0.5
+            * self.rho_sw
+            * tip_speed**2
+        )
+
+        return sigma < 0.3
+
+    def optimize_trim_draft(
+        self,
+        displacement: float,
+        lcb_position: float,
+        vcg: float,
+    ) -> float:
+        """
+        [15] Calculates fuel-efficient hull angle
+        based on current load.
+        """
+
+        return math.atan(
+            (lcb_position - vcg)
+            / displacement
+        )
+
+    def calculate_ballast_displacement(
+        self,
+        target_draft: float,
+        current_displacement: float,
+    ) -> float:
+        """
+        [16] Optimizes CoG while minimizing dead weight.
+        """
+
+        return max(
+            0,
+            (target_draft * 10.25)
+            - current_displacement,
+        )
+
+    def simulate_wave_resistance(
+        self,
+        velocity: float,
+        hull_length: float,
+    ) -> float:
+        """
+        [17] Simulates hull-water interaction to find
+        economical speed.
+        """
+
+        froude_number = velocity / math.sqrt(
+            self.g * hull_length
+        )
+
+        return (
+            0.5
+            * self.rho_sw
+            * (velocity**2)
+            * (froude_number**4)
+        )
+
+    def model_air_lubrication(
+        self,
+        air_flow_rate: float,
+        hull_surface: float,
+    ) -> float:
+        """
+        [18] Models friction reduction of micro-bubble layers.
+        """
+
+        reduction_factor = min(
+            0.15,
+            (air_flow_rate / hull_surface)
+            * 0.5,
+        )
+
         return 1.0 - reduction_factor
 
-    def monitor_port_siltation(self, baseline_depth, silt_rate_daily, days):
-        """[20] Models how sediment buildup affects maximum draft."""
-        return baseline_depth - (silt_rate_daily * days)
+    def monitor_port_siltation(
+        self,
+        baseline_depth: float,
+        silt_rate_daily: float,
+        days: float,
+    ) -> float:
+        """
+        [20] Models how sediment buildup affects
+        maximum draft.
+        """
 
-    def resolve_bernoulli_pressure(self, p1, v1, h1, v2, h2):
-        """Standard pressure resolution between two points in a flow."""
-        return p1 + 0.5 * self.rho_sw * (v1**2 - v2**2) + self.rho_sw * self.g * (h1 - h2)
+        return baseline_depth - (
+            silt_rate_daily * days
+        )
 
-    def calculate_reynolds_number(self, velocity, length, kinematic_viscosity):
-        """Determines if flow is laminar or turbulent."""
-        return (velocity * length) / kinematic_viscosity
+    def resolve_bernoulli_pressure(
+        self,
+        p1: float,
+        v1: float,
+        h1: float,
+        v2: float,
+        h2: float,
+    ) -> float:
+        """
+        Standard pressure resolution between two
+        points in a flow.
+        """
+
+        return (
+            p1
+            + 0.5
+            * self.rho_sw
+            * (v1**2 - v2**2)
+            + self.rho_sw
+            * self.g
+            * (h1 - h2)
+        )
+
+    def calculate_reynolds_number(
+        self,
+        velocity: float,
+        length: float,
+        kinematic_viscosity: float,
+    ) -> float:
+        """
+        Determines if flow is laminar or turbulent.
+        """
+
+        return (
+            velocity * length
+        ) / kinematic_viscosity
