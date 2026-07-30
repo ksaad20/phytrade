@@ -7,6 +7,8 @@
 [![Stars](https://img.shields.io/github/stars/ksaad20/phytrade)](https://github.com/ksaad20/phytrade/stargazers)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21536973.svg)](https://doi.org/10.5281/zenodo.21536973)
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0560--9117-A6CE39?logo=orcid)](https://orcid.org/0000-0003-0560-9117)
+![PyPI Downloads](https://img.shields.io/pypi/dm/phytrade)
+![PyPI Total Downloads](https://pepy.tech/badge/phytrade)
 
 # phytrade (v1.3.0)
 
