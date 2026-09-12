@@ -2,6 +2,7 @@ class StrategicArbitrator:
     """
     High-level decision logic for fleet operations and asset lifecycle.
     """
+
     def __init__(self):
         self.priority_matrix = {}
 
@@ -35,7 +36,7 @@ class StrategicArbitrator:
 
     def carbon_credit_valuation(self, fuel_saved_platooning, wind_offset):
         """Calculates environmental ROI for strategic reporting."""
-        return (fuel_saved_platooning + wind_offset) * 50.0 # $ per ton
+        return (fuel_saved_platooning + wind_offset) * 50.0  # $ per ton
 
     def infrastructure_lifecycle_forecast(self, wear_index, age):
         """Predicts when mechanical components require total replacement."""

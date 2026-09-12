@@ -18,24 +18,11 @@ class FluidsArbitrator:
         bio_fouling_index: float,
     ) -> float:
         """[11] Estimates drag increase from bio-fouling to time dry-docking."""
-        cf_clean = 0.075 / (
-            math.log10(
-                velocity * 100 / 0.000001
-            )
-            - 2
-        ) ** 2
+        cf_clean = 0.075 / (math.log10(velocity * 100 / 0.000001) - 2) ** 2
 
-        drag_clean = (
-            0.5
-            * self.rho_sw
-            * (velocity**2)
-            * wetted_area
-            * cf_clean
-        )
+        drag_clean = 0.5 * self.rho_sw * (velocity**2) * wetted_area * cf_clean
 
-        return drag_clean * (
-            1 + bio_fouling_index
-        )
+        return drag_clean * (1 + bio_fouling_index)
 
     def model_free_surface_effect(
         self,
@@ -48,15 +35,9 @@ class FluidsArbitrator:
         bulk in partially filled tanks.
         """
 
-        i_moment = (
-            tank_length
-            * (tank_width**3)
-        ) / 12
+        i_moment = (tank_length * (tank_width**3)) / 12
 
-        return (
-            fluid_density
-            * i_moment
-        ) / self.rho_sw
+        return (fluid_density * i_moment) / self.rho_sw
 
     def predict_propeller_cavitation(
         self,
@@ -69,13 +50,7 @@ class FluidsArbitrator:
         pressure vs vapor pressure.
         """
 
-        sigma = (
-            p_static - p_vapor
-        ) / (
-            0.5
-            * self.rho_sw
-            * tip_speed**2
-        )
+        sigma = (p_static - p_vapor) / (0.5 * self.rho_sw * tip_speed**2)
 
         return sigma < 0.3
 
@@ -90,10 +65,7 @@ class FluidsArbitrator:
         based on current load.
         """
 
-        return math.atan(
-            (lcb_position - vcg)
-            / displacement
-        )
+        return math.atan((lcb_position - vcg) / displacement)
 
     def calculate_ballast_displacement(
         self,
@@ -106,8 +78,7 @@ class FluidsArbitrator:
 
         return max(
             0,
-            (target_draft * 10.25)
-            - current_displacement,
+            (target_draft * 10.25) - current_displacement,
         )
 
     def simulate_wave_resistance(
@@ -120,16 +91,9 @@ class FluidsArbitrator:
         economical speed.
         """
 
-        froude_number = velocity / math.sqrt(
-            self.g * hull_length
-        )
+        froude_number = velocity / math.sqrt(self.g * hull_length)
 
-        return (
-            0.5
-            * self.rho_sw
-            * (velocity**2)
-            * (froude_number**4)
-        )
+        return 0.5 * self.rho_sw * (velocity**2) * (froude_number**4)
 
     def model_air_lubrication(
         self,
@@ -142,8 +106,7 @@ class FluidsArbitrator:
 
         reduction_factor = min(
             0.15,
-            (air_flow_rate / hull_surface)
-            * 0.5,
+            (air_flow_rate / hull_surface) * 0.5,
         )
 
         return 1.0 - reduction_factor
@@ -159,9 +122,7 @@ class FluidsArbitrator:
         maximum draft.
         """
 
-        return baseline_depth - (
-            silt_rate_daily * days
-        )
+        return baseline_depth - (silt_rate_daily * days)
 
     def resolve_bernoulli_pressure(
         self,
@@ -177,13 +138,7 @@ class FluidsArbitrator:
         """
 
         return (
-            p1
-            + 0.5
-            * self.rho_sw
-            * (v1**2 - v2**2)
-            + self.rho_sw
-            * self.g
-            * (h1 - h2)
+            p1 + 0.5 * self.rho_sw * (v1**2 - v2**2) + self.rho_sw * self.g * (h1 - h2)
         )
 
     def calculate_reynolds_number(
@@ -196,6 +151,4 @@ class FluidsArbitrator:
         Determines if flow is laminar or turbulent.
         """
 
-        return (
-            velocity * length
-        ) / kinematic_viscosity
+        return (velocity * length) / kinematic_viscosity

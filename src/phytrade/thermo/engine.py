@@ -25,21 +25,13 @@ class ThermoArbitrator:
         rh: float,
         temp_surface: float,
     ) -> dict[str, float | str]:
-        alpha = np.log(rh / 100) + (
-            17.625 * temp_air
-        ) / (243.04 + temp_air)
+        alpha = np.log(rh / 100) + (17.625 * temp_air) / (243.04 + temp_air)
 
-        dew_point = (
-            243.04 * alpha
-        ) / (17.625 - alpha)
+        dew_point = (243.04 * alpha) / (17.625 - alpha)
 
         return {
             "dew_point_c": round(float(dew_point), 2),
-            "risk": (
-                "CRITICAL"
-                if temp_surface <= dew_point
-                else "SAFE"
-            ),
+            "risk": ("CRITICAL" if temp_surface <= dew_point else "SAFE"),
         }
 
     def solve_ghost_weight(
@@ -64,20 +56,11 @@ class ThermoArbitrator:
         )
 
         equilibrium_moisture_content = (
-            (
-                -np.log(1 - relative_humidity)
-            )
-            / (
-                constants[0]
-                * (temp_kelvin ** constants[1])
-            )
+            (-np.log(1 - relative_humidity))
+            / (constants[0] * (temp_kelvin ** constants[1]))
         ) ** (1 / constants[2])
 
-        predicted_mass = (
-            mass * (1 - moisture)
-        ) / (
-            1 - equilibrium_moisture_content
-        )
+        predicted_mass = (mass * (1 - moisture)) / (1 - equilibrium_moisture_content)
 
         return {
             "predicted_mass_kg": round(
@@ -101,9 +84,7 @@ class ThermoArbitrator:
             "Strawberry": 60,
         }
 
-        return (
-            mass_kg / 1000
-        ) * respiration_rates.get(
+        return (mass_kg / 1000) * respiration_rates.get(
             product,
             20,
         )
@@ -114,8 +95,7 @@ class ThermoArbitrator:
         leak_watts: float,
     ) -> float:
         return round(
-            (leak_watts * 3600 * hours)
-            / (334 * 1000),
+            (leak_watts * 3600 * hours) / (334 * 1000),
             2,
         )
 
@@ -143,10 +123,7 @@ class ThermoArbitrator:
         hours: float,
     ) -> float:
         return round(
-            0.00015
-            * area
-            * vp_diff
-            * hours,
+            0.00015 * area * vp_diff * hours,
             4,
         )
 
@@ -168,8 +145,4 @@ class ThermoArbitrator:
     def vip_status(
         pressure: float,
     ) -> str:
-        return (
-            "FAILING"
-            if pressure > 0.5
-            else "INTACT"
-        )
+        return "FAILING" if pressure > 0.5 else "INTACT"

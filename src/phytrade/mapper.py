@@ -40,12 +40,10 @@ class Mapper:
         for index, row in mapped_df.iterrows():
             # 3. Validate against Physics Constraints
             # (Institutional Grade)
-            is_valid, message = (
-                PhysicalConstraints.validate_telemetry(
-                    mass=row.get("mass", 0),
-                    velocity=row.get("velocity", 0),
-                    humidity=row.get("humidity", None),
-                )
+            is_valid, message = PhysicalConstraints.validate_telemetry(
+                mass=row.get("mass", 0),
+                velocity=row.get("velocity", 0),
+                humidity=row.get("humidity", None),
             )
 
             results.append(

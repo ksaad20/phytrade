@@ -21,17 +21,9 @@ class MechanicalArbitrator:
         Net force from sails/rotors.
         """
 
-        force_total = (
-            0.5
-            * self.air_density
-            * (wind_speed**2)
-            * sail_area
-            * 1.5
-        )
+        force_total = 0.5 * self.air_density * (wind_speed**2) * sail_area * 1.5
 
-        return force_total * math.cos(
-            math.radians(angle)
-        )
+        return force_total * math.cos(math.radians(angle))
 
     def evaluate_propeller_erosion(
         self,
@@ -43,11 +35,7 @@ class MechanicalArbitrator:
         due to bubble collapse.
         """
 
-        return (
-            cav_hours
-            * (intensity**2)
-            * 0.001
-        )
+        return cav_hours * (intensity**2) * 0.001
 
     def monitor_shaft_torque(
         self,
@@ -62,9 +50,7 @@ class MechanicalArbitrator:
         if rpm == 0:
             return 0
 
-        return (
-            power_kw * 9550
-        ) / rpm
+        return (power_kw * 9550) / rpm
 
     def check_structural_integrity(
         self,
@@ -76,10 +62,7 @@ class MechanicalArbitrator:
         limits during optimization.
         """
 
-        effective_stress = (
-            load_stress
-            / math.cos(trim_angle)
-        )
+        effective_stress = load_stress / math.cos(trim_angle)
 
         return effective_stress < 250.0  # MPa limit example
 
@@ -93,11 +76,7 @@ class MechanicalArbitrator:
         non-propulsion systems.
         """
 
-        return (
-            air_systems_active * 50
-        ) + (
-            ballast_pumps * 120
-        )
+        return (air_systems_active * 50) + (ballast_pumps * 120)
 
     def calculate_gearbox_efficiency(
         self,
@@ -109,9 +88,7 @@ class MechanicalArbitrator:
         in mechanical transmission.
         """
 
-        return (
-            input_power - heat_loss
-        ) / input_power
+        return (input_power - heat_loss) / input_power
 
     def simulate_rudder_torque(
         self,
@@ -123,14 +100,7 @@ class MechanicalArbitrator:
         during maneuvers.
         """
 
-        return (
-            0.5
-            * 1025
-            * (water_velocity**2)
-            * math.sin(
-                math.radians(rudder_angle)
-            )
-        )
+        return 0.5 * 1025 * (water_velocity**2) * math.sin(math.radians(rudder_angle))
 
     def actuator_response_time(
         self,
@@ -142,9 +112,7 @@ class MechanicalArbitrator:
         trim/ballast adjustment.
         """
 
-        return load / (
-            pressure * 0.8
-        )
+        return load / (pressure * 0.8)
 
     def material_fatigue_index(
         self,
@@ -156,9 +124,7 @@ class MechanicalArbitrator:
         and propeller components.
         """
 
-        return cycles * (
-            stress_range**3
-        )
+        return cycles * (stress_range**3)
 
     def calibrate_sensor_offset(
         self,
@@ -170,10 +136,4 @@ class MechanicalArbitrator:
         for thermal expansion.
         """
 
-        return raw_val * (
-            1
-            + (
-                environmental_temp
-                * 0.000012
-            )
-        )
+        return raw_val * (1 + (environmental_temp * 0.000012))

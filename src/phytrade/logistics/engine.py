@@ -2,12 +2,14 @@ class LogisticsArbitrator:
     """
     Orchestrates convoy efficiency, scheduling, and drafting logistics.
     """
+
     def __init__(self):
         self.base_drag_coeff = 0.3
 
     def calculate_platoon_savings(self, gap_meters, vehicle_count):
         """[13] Aerodynamic Drafting: Fuel savings from reduced air resistance."""
-        if gap_meters > 20: return 0.0
+        if gap_meters > 20:
+            return 0.0
         individual_saving = (1.0 - (gap_meters / 20)) * 0.25
         return individual_saving * (vehicle_count - 1)
 
