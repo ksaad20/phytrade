@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def calculate_dispute_value(
     mass, velocity, delta_t, contract_value, baseline_entropy=1.5
 ):
