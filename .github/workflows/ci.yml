@@ -57,6 +57,7 @@ jobs:
             mypy \
             bandit \
             pytest \
+            pandas-stubs\
             pytest-cov \
             build \
             twine
