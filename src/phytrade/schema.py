@@ -22,4 +22,5 @@ class Schema:
 
         return True, "Data Physically Validated"
 
+
 PhysicalConstraints = Schema
