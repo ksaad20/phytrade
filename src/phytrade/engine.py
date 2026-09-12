@@ -1,7 +1,5 @@
 from typing import Any
 
-import numpy as np
-
 
 class Engine:
     def __init__(self, mapper=None, schema=None):
