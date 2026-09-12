@@ -21,3 +21,5 @@ class Schema:
             return False, "Invalid Environment: Humidity out of bounds."
 
         return True, "Data Physically Validated"
+
+PhysicalConstraints = Schema
