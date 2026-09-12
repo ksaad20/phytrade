@@ -34,11 +34,26 @@ class Engine:
         from .schema import Schema
 
         local_schema = self.schema if self.schema else Schema()
-        local_mapper = self.mapper if self.mapper else Mapper()
+        local_mapper = self.mapper if self.mapper else Mapper({})
 
-        validated = local_schema.validate(raw_data)
+        validated, message = local_schema.validate_telemetry(
+            mass=float(raw_data.get("mass", 0)),
+            velocity=float(raw_data.get("velocity", 0)),
+            humidity=(
+                float(raw_data["humidity"])
+                if raw_data.get("humidity") is not None
+                else None
+            ),
+        )
 
         if validated:
-            return local_mapper.map(raw_data)
+            return {
+                "status": "valid",
+                "message": message,
+                "data": raw_data,
+            }
 
-        return {"status": "invalid"}
+        return {
+            "status": "invalid",
+            "message": message,
+        }
