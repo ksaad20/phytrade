@@ -1,9 +1,12 @@
+import math
+
+
 def calculate_dispute_value(
     mass, velocity, delta_t, contract_value, baseline_entropy=1.5
 ):
     """The exact logic from your Engine.py but standalone."""
     ke = 0.5 * mass * (velocity**2)
-    entropy_delta = np.log1p(delta_t) / baseline_entropy
+    entropy_delta = math.log1p(delta_t) / baseline_entropy
     friction_factor = ke + entropy_delta
     settlement = (friction_factor / (1 + friction_factor)) * contract_value
 
