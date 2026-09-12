@@ -37,3 +37,7 @@ where = ["src"]
 
 [tool.setuptools_scm]
 # Enables automatic versioning from your git tags
+
+[tool.black]
+target-version = ["py310"]
+line-length = 88
