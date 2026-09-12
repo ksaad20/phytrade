@@ -55,7 +55,7 @@ jobs:
             ruff \
             black \
             mypy \
-            pandas-stubs\
+            pandas-stubs \
             bandit \
             pytest \
             pytest-cov \
