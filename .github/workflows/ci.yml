@@ -55,9 +55,9 @@ jobs:
             ruff \
             black \
             mypy \
+            pandas-stubs\
             bandit \
             pytest \
-            pandas-stubs\
             pytest-cov \
             build \
             twine
