@@ -26,6 +26,11 @@ dependencies = [
     "numpy>=1.24.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pandas-stubs",
+]
+
 [project.urls]
 Homepage = "https://github.com/ksaad20/phytrade"
 
