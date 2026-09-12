@@ -30,11 +30,9 @@ class Engine:
         self,
         raw_data: dict[str, Any],
     ) -> dict[str, Any]:
-        from .mapper import Mapper
         from .schema import Schema
 
         local_schema = self.schema if self.schema else Schema()
-        local_mapper = self.mapper if self.mapper else Mapper({})
 
         validated, message = local_schema.validate_telemetry(
             mass=float(raw_data.get("mass", 0)),
