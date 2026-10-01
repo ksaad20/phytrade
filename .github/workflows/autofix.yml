@@ -15,6 +15,6 @@ jobs:
       - uses: astral-sh/ruff-action@v2
       - run: ruff check . --fix
       - run: ruff format .
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "style: auto-fix ruff"
